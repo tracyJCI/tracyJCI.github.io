@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.3.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.2.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.0.0"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec ={
+  "title": "NYC Population by Borough",
+  "width": 150,
+  "height": 300,
+  "data": {
+    "values": [
+      {
+        "Borough": "Bronx",
+        "Population": 1451277,
+        "year": 1950
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2738175,
+        "year": 1950
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1960101,
+        "year": 1950
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1550849,
+        "year": 1950
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 191555,
+        "year": 1950
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1424815,
+        "year": 1960
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2627319,
+        "year": 1960
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1698281,
+        "year": 1960
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1809578,
+        "year": 1960
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 221991,
+        "year": 1960
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1471701,
+        "year": 1970
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2602012,
+        "year": 1970
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1539233,
+        "year": 1970
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1986473,
+        "year": 1970
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 295443,
+        "year": 1970
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1168972,
+        "year": 1980
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2230936,
+        "year": 1980
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1428285,
+        "year": 1980
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1891325,
+        "year": 1980
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 352121,
+        "year": 1980
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1203789,
+        "year": 1990
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2300664,
+        "year": 1990
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1487536,
+        "year": 1990
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1951598,
+        "year": 1990
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 378977,
+        "year": 1990
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1332650,
+        "year": 2000
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2465326,
+        "year": 2000
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1537195,
+        "year": 2000
+      },
+      {
+        "Borough": "Queens",
+        "Population": 2229379,
+        "year": 2000
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 443728,
+        "year": 2000
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1385108,
+        "year": 2010
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2552911,
+        "year": 2010
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1585873,
+        "year": 2010
+      },
+      {
+        "Borough": "Queens",
+        "Population": 2250002,
+        "year": 2010
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 468730,
+        "year": 2010
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "column": {
+      "field": "year",
+      "type": "ordinal"
+    },
+    "x": {
+      "field": "Borough",
+      "type": "nominal"
+    },
+    "y": {
+      "field": "Population",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Borough",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "range": [
+          "#EFF5B7",
+          "#3E88AB",
+          "#16296C",
+          "#5FADAF",
+          "#EFF5B7"
+        ]
+      }
+    }
+  }
+}
+;
+      vegaEmbed('#vis', yourVlSpec);
+    </script>
+hiii
+  </body>
+</html>

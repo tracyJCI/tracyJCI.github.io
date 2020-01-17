@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.3.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.2.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.0.0"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = 
+
+{
+
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "title":{"text": "New York City Population by Borough 1950 - 2040"},
+  "description": "New York City Population by Borough 1950 - 2040",
+  "data": { "values" : [
+    {"Year":"1950","Percentage":"18.39", "Borough":"Bronx" },
+    {"Year":"1960","Percentage":"18.31","Borough":"Bronx" },
+    {"Year":"1970","Percentage":"18.64","Borough":"Bronx" },
+    {"Year":"1980","Percentage":"16.53","Borough":"Bronx" },
+    {"Year":"1990","Percentage":"16.44", "Borough":"Bronx" },
+    {"Year":"2000","Percentage":"16.64","Borough":"Bronx" },
+    {"Year":"2010","Percentage":"16.8","Borough":"Bronx" },
+    {"Year":"2020","Percentage":"16.92","Borough":"Bronx" },
+    {"Year":"2030","Percentage":"17.22","Borough":"Bronx" },
+    {"Year":"2040","Percentage":"17.5","Borough":"Bronx" },
+
+   {"Year":"1950","Percentage":"34.7", "Borough":"Brooklyn" },
+    {"Year":"1960","Percentage":"33.76","Borough":"Brooklyn" },
+    {"Year":"1970","Percentage":"32.96","Borough":"Brooklyn" },
+    {"Year":"1980","Percentage":"31.55","Borough":"Brooklyn" },
+    {"Year":"1990","Percentage":"31.42", "Borough":"Brooklyn" },
+    {"Year":"2000","Percentage":"30.78","Borough":"Brooklyn" },
+    {"Year":"2010","Percentage":"30.97","Borough":"Brooklyn" },
+    {"Year":"2020","Percentage":"30.97","Borough":"Brookyln" },
+    {"Year":"2030","Percentage":"31.22","Borough":"Brooklyn" },
+    {"Year":"2040","Percentage":"31.47","Borough":"Brooklyn" },
+
+     {"Year":"1950","Percentage":"24.84", "Borough":"Manhattan" },
+    {"Year":"1960","Percentage":"21.82","Borough":"Manhattan" },
+    {"Year":"1970","Percentage":"19.5","Borough":"Manhattan" },
+    {"Year":"1980","Percentage":"20.2","Borough":"Manhattan" },
+    {"Year":"1990","Percentage":"20.31", "Borough":"Manhattan" },
+    {"Year":"2000","Percentage":"19.2","Borough":"Manhattan" },
+    {"Year":"2010","Percentage":"19.24","Borough":"Manhattan" },
+    {"Year":"2020","Percentage":"19.16","Borough":"Manhattan" },
+    {"Year":"2030","Percentage":"19.01","Borough":"Manhattan" },
+    {"Year":"2040","Percentage":"18.74","Borough":"Manhattan" },
+
+     {"Year":"1950","Percentage":"19.65", "Borough":"Queens" },
+    {"Year":"1960","Percentage":"23.25","Borough":"Queens" },
+    {"Year":"1970","Percentage":"25.16","Borough":"Queens" },
+    {"Year":"1980","Percentage":"26.75","Borough":"Queens" },
+    {"Year":"1990","Percentage":"26.65", "Borough":"Queens" },
+    {"Year":"2000","Percentage":"27.84","Borough":"Queens" },
+    {"Year":"2010","Percentage":"27.3","Borough":"Queens" },
+    {"Year":"2020","Percentage":"27.25","Borough":"Queens" },
+    {"Year":"2030","Percentage":"26.91","Borough":"Queens" },
+    {"Year":"2040","Percentage":"26.73","Borough":"Queens" },
+
+    {"Year":"1950","Percentage":"2.43", "Borough":"Staten Island" },
+    {"Year":"1960","Percentage":"2.85","Borough":"Staten Island" },
+    {"Year":"1970","Percentage":"3.74","Borough":"Staten Island" },
+    {"Year":"1980","Percentage":"4.98","Borough":"Staten Island" },
+    {"Year":"1990","Percentage":"5.18", "Borough":"Staten Island" },
+    {"Year":"2000","Percentage":"5.54","Borough":"Staten Island" },
+    {"Year":"2010","Percentage":"5.69","Borough":"Staten Island" },
+    {"Year":"2020","Percentage":"5.7","Borough":"Staten Island" },
+    {"Year":"2030","Percentage":"5.64","Borough":"Staten Island" },
+    {"Year":"2040","Percentage":"5.55","Borough":"Staten Island" }
+    ]
+    
+    },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {"field": "Percentage", "type": "quantitative","title":"Share of Population(%)"},
+    
+      "color": {
+      "field": "Borough", "type": "nominal",
+      "scale": {
+        "domain": ["Bronx", "Brooklyn", "Manhattan", "Queens","Staten Island"],
+        "range": ["red", "green", "blue", "orange","purple"]
+      }
+    }
+  }
+}
+
+  
+;
+      vegaEmbed('#vis', yourVlSpec);
+    
+    </script>
+    
+    <div id="vis2"></div>
+    
+     <script type="text/javascript">
+      var yourV2Spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.1.json",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/erikaweir/DataVisualizationFinalProject/master/Borough%20Boundaries.geojson",
+    "format": {
+      "property": "features"
+    }
+  },
+  "projection": {
+    "type": "albersUsa"
+  },
+  "transform": [
+    {
+      "lookup": "properties.boro_name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/erikaweir/DataVisualizationFinalProject/master/Breeds_by_Borough.csv"
+        },
+        "key": "Borough",
+        "fields": [
+          "Count",
+          "Borough",
+          "Pop_Dog1",
+          "Pop_Dog2",
+          "Pop_Dog3"
+        ]
+      }
+    }
+  ],
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "Count",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {
+        "field": "Borough",
+        "type": "nominal"
+      },
+      {
+        "field": "Pop_Dog1",
+        "type": "nominal"
+      },
+      {
+        "field": "Pop_Dog2",
+        "type": "nominal"
+      },
+      {
+        "field": "Pop_Dog3",
+        "type": "nominal"
+      }
+    ]
+  }
+}
+;
+      vegaEmbed('#vis2', yourV2Spec);
+    </script>
+    
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = 
+
+{
+
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "title":{"text": "New York City Population by Borough 1950 - 2040"},
+  "description": "New York City Population by Borough 1950 - 2040",
+  "data": { "values" : [
+    {"Year":"1950","Percentage":"18.39", "Borough":"Bronx" },
+    {"Year":"1960","Percentage":"18.31","Borough":"Bronx" },
+    {"Year":"1970","Percentage":"18.64","Borough":"Bronx" },
+    {"Year":"1980","Percentage":"16.53","Borough":"Bronx" },
+    {"Year":"1990","Percentage":"16.44", "Borough":"Bronx" },
+    {"Year":"2000","Percentage":"16.64","Borough":"Bronx" },
+    {"Year":"2010","Percentage":"16.8","Borough":"Bronx" },
+    {"Year":"2020","Percentage":"16.92","Borough":"Bronx" },
+    {"Year":"2030","Percentage":"17.22","Borough":"Bronx" },
+    {"Year":"2040","Percentage":"17.5","Borough":"Bronx" },
+
+   {"Year":"1950","Percentage":"34.7", "Borough":"Brooklyn" },
+    {"Year":"1960","Percentage":"33.76","Borough":"Brooklyn" },
+    {"Year":"1970","Percentage":"32.96","Borough":"Brooklyn" },
+    {"Year":"1980","Percentage":"31.55","Borough":"Brooklyn" },
+    {"Year":"1990","Percentage":"31.42", "Borough":"Brooklyn" },
+    {"Year":"2000","Percentage":"30.78","Borough":"Brooklyn" },
+    {"Year":"2010","Percentage":"30.97","Borough":"Brooklyn" },
+    {"Year":"2020","Percentage":"30.97","Borough":"Brookyln" },
+    {"Year":"2030","Percentage":"31.22","Borough":"Brooklyn" },
+    {"Year":"2040","Percentage":"31.47","Borough":"Brooklyn" },
+
+     {"Year":"1950","Percentage":"24.84", "Borough":"Manhattan" },
+    {"Year":"1960","Percentage":"21.82","Borough":"Manhattan" },
+    {"Year":"1970","Percentage":"19.5","Borough":"Manhattan" },
+    {"Year":"1980","Percentage":"20.2","Borough":"Manhattan" },
+    {"Year":"1990","Percentage":"20.31", "Borough":"Manhattan" },
+    {"Year":"2000","Percentage":"19.2","Borough":"Manhattan" },
+    {"Year":"2010","Percentage":"19.24","Borough":"Manhattan" },
+    {"Year":"2020","Percentage":"19.16","Borough":"Manhattan" },
+    {"Year":"2030","Percentage":"19.01","Borough":"Manhattan" },
+    {"Year":"2040","Percentage":"18.74","Borough":"Manhattan" },
+
+     {"Year":"1950","Percentage":"19.65", "Borough":"Queens" },
+    {"Year":"1960","Percentage":"23.25","Borough":"Queens" },
+    {"Year":"1970","Percentage":"25.16","Borough":"Queens" },
+    {"Year":"1980","Percentage":"26.75","Borough":"Queens" },
+    {"Year":"1990","Percentage":"26.65", "Borough":"Queens" },
+    {"Year":"2000","Percentage":"27.84","Borough":"Queens" },
+    {"Year":"2010","Percentage":"27.3","Borough":"Queens" },
+    {"Year":"2020","Percentage":"27.25","Borough":"Queens" },
+    {"Year":"2030","Percentage":"26.91","Borough":"Queens" },
+    {"Year":"2040","Percentage":"26.73","Borough":"Queens" },
+
+    {"Year":"1950","Percentage":"2.43", "Borough":"Staten Island" },
+    {"Year":"1960","Percentage":"2.85","Borough":"Staten Island" },
+    {"Year":"1970","Percentage":"3.74","Borough":"Staten Island" },
+    {"Year":"1980","Percentage":"4.98","Borough":"Staten Island" },
+    {"Year":"1990","Percentage":"5.18", "Borough":"Staten Island" },
+    {"Year":"2000","Percentage":"5.54","Borough":"Staten Island" },
+    {"Year":"2010","Percentage":"5.69","Borough":"Staten Island" },
+    {"Year":"2020","Percentage":"5.7","Borough":"Staten Island" },
+    {"Year":"2030","Percentage":"5.64","Borough":"Staten Island" },
+    {"Year":"2040","Percentage":"5.55","Borough":"Staten Island" }
+    ]
+    
+    },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {"field": "Percentage", "type": "quantitative","title":"Share of Population(%)"},
+    
+      "color": {
+      "field": "Borough", "type": "nominal",
+      "scale": {
+        "domain": ["Bronx", "Brooklyn", "Manhattan", "Queens","Staten Island"],
+        "range": ["red", "green", "blue", "orange","purple"]
+      }
+    }
+  }
+}
+
+  
+;
+      vegaEmbed('#vis', yourVlSpec);
+    
+    </script>
+    
+    <div id="vis3"></div>
+
+    <script type="text/javascript">
+      var yourV3Spec ={
+  "title": "NYC Population by Borough",
+  "width": 150,
+  "height": 300,
+  "data": {
+    "values": [
+      {
+        "Borough": "Bronx",
+        "Population": 1451277,
+        "year": 1950
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2738175,
+        "year": 1950
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1960101,
+        "year": 1950
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1550849,
+        "year": 1950
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 191555,
+        "year": 1950
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1424815,
+        "year": 1960
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2627319,
+        "year": 1960
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1698281,
+        "year": 1960
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1809578,
+        "year": 1960
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 221991,
+        "year": 1960
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1471701,
+        "year": 1970
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2602012,
+        "year": 1970
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1539233,
+        "year": 1970
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1986473,
+        "year": 1970
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 295443,
+        "year": 1970
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1168972,
+        "year": 1980
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2230936,
+        "year": 1980
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1428285,
+        "year": 1980
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1891325,
+        "year": 1980
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 352121,
+        "year": 1980
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1203789,
+        "year": 1990
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2300664,
+        "year": 1990
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1487536,
+        "year": 1990
+      },
+      {
+        "Borough": "Queens",
+        "Population": 1951598,
+        "year": 1990
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 378977,
+        "year": 1990
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1332650,
+        "year": 2000
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2465326,
+        "year": 2000
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1537195,
+        "year": 2000
+      },
+      {
+        "Borough": "Queens",
+        "Population": 2229379,
+        "year": 2000
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 443728,
+        "year": 2000
+      },
+      {
+        "Borough": "Bronx",
+        "Population": 1385108,
+        "year": 2010
+      },
+      {
+        "Borough": "Brooklyn",
+        "Population": 2552911,
+        "year": 2010
+      },
+      {
+        "Borough": "Manhattan",
+        "Population": 1585873,
+        "year": 2010
+      },
+      {
+        "Borough": "Queens",
+        "Population": 2250002,
+        "year": 2010
+      },
+      {
+        "Borough": "Staten Island",
+        "Population": 468730,
+        "year": 2010
+      }
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "column": {
+      "field": "year",
+      "type": "ordinal"
+    },
+    "x": {
+      "field": "Borough",
+      "type": "nominal"
+    },
+    "y": {
+      "field": "Population",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Borough",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "range": [
+          "#EFF5B7",
+          "#3E88AB",
+          "#16296C",
+          "#5FADAF",
+          "#EFF5B7"
+        ]
+      }
+    }
+  }
+}
+;
+      vegaEmbed('#vis3', yourV3Spec);
+    </script>
+    
+     <div id="vis4"></div>
+
+    <script type="text/javascript">
+      var yourV4Spec = {
+  //"$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "data": {
+    "values": [
+      {"borough": "Bronx", "bites": 585.6667},
+      {"borough": "Brooklyn", "bites": 760.3333},
+      {"borough": "Manhattan", "bites": 784.6667},
+      {"borough": "Queens", "bites": 840},
+      {"borough": "Staten Island", "bites": 310.3333}
+    ]
+  },
+  "title": "NYC Annual Dog Bites by Borough",
+  "width": 480,
+  "height": 360,
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "borough", "type": "nominal", "axis": {"title": "Borough"}},
+    "y": {
+      "field": "bites",
+      "type": "quantitative",
+      "axis": {"title": "Total Counts"}
+    },
+    "color": {
+      "field": "borough",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "range": ["#EFF5B7", "#3E88AB", "#16296C", "#5FADAF", "#EFF5B7"]
+      }
+    }
+  }
+}
+
+;
+      vegaEmbed('#vis4', yourV4Spec);
+    </script>
+    
+  </body>
+</html>

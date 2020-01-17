@@ -1,0 +1,108 @@
+body {
+	background: #fff;
+    font-family: Verdana,"Times New Roman",sans-serif;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: normal;
+}
+a:hover {
+    
+    text-align: left;
+	border: 2px solid #483D8B;
+	background-color: #fff;
+	
+}
+a:link {
+	color: #9370DB;
+	font-size: 16px;
+}
+a:visited {
+	color: #CD5C5C;
+	background-color: #fff;
+	
+}
+h2{
+	color: #483D8B;
+	background-color: #fff;
+	font-family: "Verdana";
+	font-style : italic;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: normal
+}
+img {
+    
+    border-radius: 50%;
+    top: 300px;
+    right: 0;
+    width: 250px;
+    height: 200px;
+    
+    
+     
+}
+
+
+#content {
+     
+  float: left ;
+  width: 80% ;
+}
+#header{ 
+  
+  padding: 10px;
+  text-align: center;
+  background: #483D8B;
+  color: white;
+  font-size: 30px;
+}
+#footer{ 
+    
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   font-size: 20px;
+   width : 100%;
+   background-color: #483D8B;
+   color: white;
+   text-align: center;
+}
+
+#navbar {
+  position: relative;    
+  float: left ;
+  width: 20%;
+  
+}
+
+.textdesign{
+	
+	
+	color: #483D8B;
+	background-color: #fff;
+	font-family: "Verdana";
+	font-style : normal;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: normal;
+
+}
+.menulist {
+	font-family:  "Verdana";
+	font-size: 16px;
+	line-height: 18px;
+	list-style-image: url(flower.jpg);
+	text-align: left;
+	font-weight: normal;
+}
+
+p
+{
+     
+	color:#000;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:12px;
+	line-height:normal;
+	text-align:center;
+	
+}

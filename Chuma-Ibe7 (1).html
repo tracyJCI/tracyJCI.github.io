@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset = "UTF-8">
+<meta name = "description" content = "Creating a form with a Simple Email Data Response">
+<title> Chuma-Ibe7 </title> 
+</head>
+
+<body>
+<form method = "post" action="mailto:kjc4@illinois.edu.com" enctype="text/plain" 
+onsubmit="window.alert('Thank you for your Response. Please e-mail us - kjc4@illinois.edu - if you have any questions...')">
+<p> <label> Question 1. How much professional dance experience do you have?</label><br>
+<label><select name="q1">
+<option value="nil"> none </option>
+<option value="less6mo"> Less than 6 months </option>
+<option value="6-12 mo"> 6 to 12 months </option>
+<option value="1-3 yr"> 1 to 3 years </option>
+<option value="4-6 yr">4 to 6 years </option>
+<option value="Over 7 yr"> 7 years or more </option>
+</select></label></p>
+<p> <label> Question 2. Are you interested in receiving information about The American Ballet School?</label><br>
+<label><input type="radio" name="q2" value="yes" />Yes</label>
+<label><input type="radio" name="q2" value="no" />No</label>
+
+</p>
+<p> <label>Question 3. If you answered yes to question #2, which kinds of
+information would you like to receive (check all that apply) </label><br>
+<label><input type="checkbox" name="q3" value="Profnews" />News </label>
+<label><input type="checkbox" name="q3" value="proftraining" /> Training Sessions</label>
+<label><input type="checkbox" name="q3" value="profcompetitions" />Competitions</label> 
+<label><input type="checkbox" name="q3" value="interpersonal" />Inter-Personal Networking</label>
+</p>
+<p>
+<label for="text_box">Question 4. Please type in the e-mail address you would like us to send information to:</label><br>
+<input type="text" name="q4" size="32" maxlength="80" id = "text_box" />
+
+</p>
+<p>
+<input type="submit" value="SEND" />
+<input type="reset" value="Clear Your Answers and Start Over" />
+</p>
+</form>
+</body>
+
+</html>

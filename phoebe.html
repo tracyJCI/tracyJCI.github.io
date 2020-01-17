@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embedding Vega-Lite</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.3.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.2.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.0.0"></script>
+  </head>
+  <body>
+    <div id="vis"></div>
+
+    <script type="text/javascript">
+      var yourVlSpec = {
+  //"$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "data": {
+    "values": [
+      {"borough": "Bronx", "bites": 585.6667},
+      {"borough": "Brooklyn", "bites": 760.3333},
+      {"borough": "Manhattan", "bites": 784.6667},
+      {"borough": "Queens", "bites": 840},
+      {"borough": "Staten Island", "bites": 310.3333}
+    ]
+  },
+  "title": "NYC Annual Dog Bites by Borough",
+  "width": 480,
+  "height": 360,
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "borough", "type": "nominal", "axis": {"title": "Borough"}},
+    "y": {
+      "field": "bites",
+      "type": "quantitative",
+      "axis": {"title": "Total Counts"}
+    },
+    "color": {
+      "field": "borough",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "range": ["#EFF5B7", "#3E88AB", "#16296C", "#5FADAF", "#EFF5B7"]
+      }
+    }
+  }
+}
+
+;
+      vegaEmbed('#vis', yourVlSpec);
+    </script>
+hiii
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset = "UTF-8">
+<meta name = "description" content = "Designing with Open Source Simple Javascript">
+<title> Chuma-Ibe8 </title> 
+<script type="text/JavaScript" language="JavaScript">
+<!-- Hide the script from old browsers --
+function surfto(form) {
+var myindex=form.select1.selectedIndex
+if (form.select1.options[myindex].value != 0) {
+location=form.select1.options[myindex].value;}
+}
+//-->
+</script>
+</head>
+<body>
+    <form name="myform" class="exampletext">
+Dropdown Menu 
+<label><select name="select1" size="1">
+<option value="0" selected> Select a program </option>
+<option value="https://ischool.illinois.edu/degrees-programs/ms-library-and-information-science"> MSLIS</option>
+<option value="https://ischool.illinois.edu/degrees-programs/ms-information-management">MSIM</option>
+<option value="https://ischool.illinois.edu/degrees-programs/ms-bioinformatics"> MS Bioinformatics</option>
+<option value="https://ischool.illinois.edu/degrees-programs/phd-library-and-information-science">PhD LIS</option>
+
+
+</select></label>
+
+<input type="button" value="Go to Activity" onClick="surfto(this.form)" name="button">
+</form>
+
+<script type="text/JavaScript" language="JavaScript">
+
+//<![CDATA[
+<!--
+document.write( "last modified at: " + document.lastModified )
+// -->
+//]]>
+</script><br>
+
+<script type="text/JavaScript">
+//<![CDATA[
+
+<!--
+
+// protected email script by Joe Maller
+
+// JavaScripts available at http://www.joemaller.com
+
+// this script is free to use and distribute
+
+// but please credit me and/or link to my site
+
+emailE=('kjc4@' + 'illinois.edu')
+
+document.write('<A href="mailto:' + emailE + '">' + emailE + '<\/a>')
+
+document.write(' or ')
+emailE=('myemail@' + 'gmail.com')
+
+document.write('<A href="mailto:' + emailE + '">' + emailE + '<\/a>')
+document.write(' or ')
+document.write('call: (217)424-9875 ')
+document.write(' or ')
+document.write('Google Hangout: myemail@gmail.com')
+//-->
+
+//]]>
+
+</script>
+<noscript>
+Contact information protected by JavaScript.<br>
+Please enable JavaScript to contact me.
+</noscript>
+</body>
+
+
+
+</html>
